@@ -21,15 +21,15 @@
  							</div>
  							<div class="form-group">
  								<label>Tunjangan Lembur</label>
- 								<input type="text" name="tunj_lembur" required="" autocomplete="off" class="form-control" placeholder="Masukan Nama Dosen..." onkeypress="input_number(event)" oninput="hitung_lembur(event)" id="tunj_lembur">
+ 								<input type="text" name="tunj_lembur" required="" autocomplete="off" class="form-control" placeholder="Masukan Tunjangan Lembur..." onkeypress="input_number(event)" oninput="hitung_lembur(event)" id="tunj_lembur">
  							</div>
  							<div class="form-group">
  								<label>Jumlah Jam</label>
- 								<input type="text" name="jumlah_jam" required="" autocomplete="off" class="form-control" placeholder="Masukan Nama Dosen..." onkeypress="input_number(event)" oninput="hitung_lembur(event)" id="jumlah_jam">
+ 								<input type="text" name="jumlah_jam" required="" autocomplete="off" class="form-control" placeholder="Masukan Jumlah Jam..." onkeypress="input_number(event)" oninput="hitung_lembur(event)" id="jumlah_jam">
  							</div>
  							<div class="form-group">
  								<label>Total</label>
- 								<input type="text" name="total_tunj_lembur" required="" autocomplete="off" class="form-control" placeholder="Masukan Nama Dosen..." onkeypress="input_number(event)" id="total_tunj_lembur" readonly="">
+ 								<input type="text" name="total_tunj_lembur" required="" autocomplete="off" class="form-control" onkeypress="input_number(event)" id="total_tunj_lembur" readonly="">
  							</div>
  						</div>
  						

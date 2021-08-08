@@ -4,43 +4,51 @@
 			<div class="col-xs-12">
 				<div class="box">
 					<div class="box-header" style="padding-top: 10px; padding-left: 12px;">
-						<h3 class="box-title">Managemen Cetak</h3>
+						<h3 class="box-title">Laporan</h3>
 					</div>
+					<?php
+					if (!empty($this->session->flashdata('message'))) {
+						$pesan = $this->session->flashdata('message');
+						echo $pesan;
+					}
+					?>
 					<div class="box-body">
-						<div class="col-md-5">
-							<form action="<?php echo base_url('Admin/cetak_sgaji') ?>" method="POST">
-								<h4 style="font-weight: bold">Cetak Semua Data Penggajian</h4>
-								<!-- Date range -->
-								<div class="form-group">
-									<label style="font-weight: lighter">Pilih Tanggal :</label>
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-calendar"></i>
-										</div>
-										<input type="text" class="form-control pull-right" id="reservation" name="reservation">
-										<input type="hidden" name="startdate">
-										<input type="hidden" name="enddate">
-									</div>
-									<!-- /.input group -->
-								</div>
-								<button class="btn btn-success" type="submit">Cetak</button>
-								<!-- /.form group -->
-							</form>
+						<br>
+						<div class="table-responsive" style="border:unset;">
+							<table id="example1" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>NIK</th>
+										<th>Nama</th>
+										<th>No. Telp</th>
+										<th>Alamat</th>
+										<th>Tempat tanggal lahir</th>
+										<th>Aksi</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+									$no = 1;
+									foreach ($staff as $key) { ?>
+										<tr>
+											<td><?php echo $no ?></td>
+											<td><?php echo $key->nik_staff ?></td>
+											<td><?php echo $key->nama_staff ?></td>
+											<td><?php echo $key->no_telp ?></td>
+											<td><?php echo $key->alamat ?></td>
+											<td><?php echo $key->ttl ?></td>
+											<td><button class="btn btn-primary" onclick="pindah('Admin/edit_dosen')"><i class="fa fa-edit"></i></button>
+												<button class="btn btn-danger" data-toggle="modal" data-target="#deleteData"><i class="fa fa-trash-o"></i></button></td>
+										</tr>
+											<?php $no++;
+										} ?>
+									</tbody>
+								</table>
+							</div>
 						</div>
-						<!-- bates -->
-					</div>
-					<hr style="background-color: #bdbcbc;">
-					<div class="box-body">
-						<div class="col-md-5">
-							<h4 style="font-weight: bold">Cetak Data Seluruh Dosen</h4>
-							<br>
-							<button class="btn btn-success" type="submit" onclick="pindah('<?php echo base_url('cetak-sdosen') ?>')" style="margin-bottom: 12px;">Cetak</button>
-							<!-- /.form group -->
-						</div>
-						<!-- bates -->
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
+	</div>
