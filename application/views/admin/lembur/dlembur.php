@@ -25,7 +25,6 @@
 										<th>Tunjangan Lembur</th>
 										<th>Jumlah Jam</th>
 										<th>Total</th>
-										<th>Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -39,7 +38,6 @@
 											<td><?php echo $key->tunj_lembur ?></td>
 											<td><?php echo $key->jumlah_jam ?></td>
 											<td><?php echo $key->total_tunj_lembur ?></td>
-											<td></td>
 												<!-- tombol delete -->
 												
 											</tr>
