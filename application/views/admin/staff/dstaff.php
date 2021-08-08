@@ -39,10 +39,9 @@
 											<td><?php echo $key->no_telp ?></td>
 											<td><?php echo $key->alamat ?></td>
 											<td><?php echo $key->ttl ?></td>
-											<td></td>
-												<!-- tombol delete -->
-												
-											</tr>
+											<td><button class="btn btn-primary" onclick="pindah('Admin/edit_dosen')"><i class="fa fa-edit"></i></button>
+												<button class="btn btn-danger" data-toggle="modal" data-target="#deleteData"><i class="fa fa-trash-o"></i></button></td>
+										</tr>
 											<?php $no++;
 										} ?>
 									</tbody>
