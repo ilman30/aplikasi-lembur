@@ -17,11 +17,11 @@
 <body class="hold-transition login-page">
 	<div class="login-box" style="color: white;">
 		<div class="login-logo">
-			<a href="#"><b>Admin</b>PGAJI</a>
+			<a href="#"><b>Admin</b>Staff</a>
 		</div>
 
 		<div class="login-box-body">
-			<p class="login-box-msg">Sign in to manage salary</p>
+			<p class="login-box-msg">Silahkan Login</p>
 
 			<form action="" method="post">
 				<div class="form-group has-feedback">
@@ -54,7 +54,7 @@
 				<p>
 					<hr>
 				</p>
-				<p>Copyright &copy; 2019 Hafiz Caniago</p>
+				<p>Copyright &copy; 2021 Robbi Suginto</p>
 			</div>
 
 		</div>
