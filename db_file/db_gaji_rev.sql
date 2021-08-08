@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2020 at 04:09 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Aug 08, 2021 at 08:53 AM
+-- Server version: 5.6.24
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -40,7 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idmin`, `username`, `full_name`, `password`) VALUES
-(1, 'admin02', 'Administrator', '$2y$05$JyY1einI3NTfj6f7Mcy7ZOsyQ0/gMeA2BW.GoklFnm4Vqkya0Mmai');
+(1, 'admin02', 'Administrator', '$2y$05$JyY1einI3NTfj6f7Mcy7ZOsyQ0/gMeA2BW.GoklFnm4Vqkya0Mmai'),
+(2, 'ubed', 'Ubed', '$2y$05$eMTfV4JTf52YSdFOeiJF.Ou1MUlXTxK7gjTRZHRjA/59RMDDeYYda');
 
 -- --------------------------------------------------------
 
@@ -159,6 +158,32 @@ INSERT INTO `jk` (`id_jk`, `jenis_kelamin`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `lembur`
+--
+
+CREATE TABLE `lembur` (
+  `id_lembur` int(10) NOT NULL,
+  `nik_staff` varchar(8) NOT NULL,
+  `tunj_lembur` double NOT NULL,
+  `jumlah_jam` int(3) NOT NULL,
+  `total_tunj_lembur` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lembur`
+--
+
+INSERT INTO `lembur` (`id_lembur`, `nik_staff`, `tunj_lembur`, `jumlah_jam`, `total_tunj_lembur`) VALUES
+(1, '12345678', 20000, 2, 40000),
+(2, '123546', 20000, 5, 100000),
+(3, '12345678', 20000, 2, 40000),
+(4, '12345678', 30000, 11, 330000),
+(5, '123546', 20000, 8, 160000),
+(6, '123546', 5555, 5555, 30858025);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rekap_gaji`
 --
 
@@ -178,6 +203,28 @@ INSERT INTO `rekap_gaji` (`id_rekap`, `nidn`, `tgl_penggajian`, `gaji_sks`) VALU
 (20, 1272441002, '2019-10-12', 700000),
 (21, 1272441005, '2019-10-12', 1800000),
 (22, 1272441003, '2020-05-27', 1440000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff`
+--
+
+CREATE TABLE `staff` (
+  `nik_staff` varchar(8) NOT NULL,
+  `nama_staff` varchar(100) NOT NULL,
+  `no_telp` varchar(13) NOT NULL,
+  `alamat` text NOT NULL,
+  `ttl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`nik_staff`, `nama_staff`, `no_telp`, `alamat`, `ttl`) VALUES
+('12345678', 'Ragiel', '082323', 'Kopo', '1990-08-03 17:00:00'),
+('123546', 'Robi', '0823326', 'Kopo', '1990-08-30 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -244,6 +291,12 @@ ALTER TABLE `jk`
   ADD PRIMARY KEY (`id_jk`);
 
 --
+-- Indexes for table `lembur`
+--
+ALTER TABLE `lembur`
+  ADD PRIMARY KEY (`id_lembur`);
+
+--
 -- Indexes for table `rekap_gaji`
 --
 ALTER TABLE `rekap_gaji`
@@ -264,44 +317,42 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `idmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `agama`
 --
 ALTER TABLE `agama`
   MODIFY `id_agama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `data_gaji`
 --
 ALTER TABLE `data_gaji`
   MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT for table `honor_sks`
 --
 ALTER TABLE `honor_sks`
   MODIFY `id_honor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `jk`
 --
 ALTER TABLE `jk`
   MODIFY `id_jk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+--
+-- AUTO_INCREMENT for table `lembur`
+--
+ALTER TABLE `lembur`
+  MODIFY `id_lembur` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `rekap_gaji`
 --
 ALTER TABLE `rekap_gaji`
   MODIFY `id_rekap` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
 --
 -- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
   MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- Constraints for dumped tables
 --
@@ -331,7 +382,6 @@ ALTER TABLE `honor_sks`
 --
 ALTER TABLE `rekap_gaji`
   ADD CONSTRAINT `rekap_gaji_ibfk_1` FOREIGN KEY (`nidn`) REFERENCES `dosen` (`nidn`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
