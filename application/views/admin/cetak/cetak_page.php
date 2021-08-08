@@ -13,6 +13,7 @@
 					}
 					?>
 					<div class="box-body">
+						<button class="btn btn-primary" style="margin-bottom: 10px"><i class="fa fa-print"></i>&nbspCetak</button>
 						<br>
 						<div class="table-responsive" style="border:unset;">
 							<table id="example1" class="table table-bordered table-hover">
@@ -21,26 +22,25 @@
 										<th>No</th>
 										<th>NIK</th>
 										<th>Nama</th>
-										<th>No. Telp</th>
-										<th>Alamat</th>
-										<th>Tempat tanggal lahir</th>
-										<th>Aksi</th>
+										<th>Tunjangan Lembur</th>
+										<th>Jumlah Jam</th>
+										<th>Total</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($staff as $key) { ?>
+									foreach ($lembur as $key) { ?>
 										<tr>
 											<td><?php echo $no ?></td>
 											<td><?php echo $key->nik_staff ?></td>
 											<td><?php echo $key->nama_staff ?></td>
-											<td><?php echo $key->no_telp ?></td>
-											<td><?php echo $key->alamat ?></td>
-											<td><?php echo $key->ttl ?></td>
-											<td><button class="btn btn-primary" onclick="pindah('Admin/edit_dosen')"><i class="fa fa-edit"></i></button>
-												<button class="btn btn-danger" data-toggle="modal" data-target="#deleteData"><i class="fa fa-trash-o"></i></button></td>
-										</tr>
+											<td><?php echo $key->tunj_lembur ?></td>
+											<td><?php echo $key->jumlah_jam ?></td>
+											<td><?php echo $key->total_tunj_lembur ?></td>
+												<!-- tombol delete -->
+												
+											</tr>
 											<?php $no++;
 										} ?>
 									</tbody>

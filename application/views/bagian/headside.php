@@ -71,7 +71,7 @@
  						</a>
  					</li>
  					<li class="treeview">
- 						<a href="<?php echo base_url('data-lembur') ?>" style="text-decoration: none;">
+ 						<a href="<?php echo base_url('tambah-lembur') ?>" style="text-decoration: none;">
  							<i class="fa fa-database"></i> <span>Data Lembur</span>
  						</a>
  					</li>>

@@ -523,9 +523,9 @@ class Admin extends CI_Controller
 
 	function cetak_page()
 	{
-		$data['staff'] = $this->modcrud->data_staff();
-		$this->load->view('admin/datastaff', $data);
-		$this->load->view('admin/cetak.php');
+		$data['lembur'] = $this->modcrud->data_lembur();
+		// $this->load->view('admin/datastaff', $data);
+		$this->load->view('admin/cetak.php', $data);
 	}
 
 	function cetak_sgaji()
